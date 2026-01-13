@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Areas of Practice | Sandhu Law Collective - Advocates & Associates</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { scroll-behavior: smooth; }
+        body { font-family: 'Roboto', sans-serif; background-color: #FAFAFA; }
+        h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; }
+        .nav-link { position: relative; }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #B8860B, #DAA520);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        .section-divider {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #B8860B, #DAA520);
+        }
+        .page-header {
+            background: linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(248,245,240,0.5) 100%), 
+                        url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=1600&auto=format&fit=crop') center/cover fixed;
+        }
+        .dark-section {
+            /* Courtroom / high court interior */
+            background: linear-gradient(rgba(45,55,72,0.9), rgba(45,55,72,0.86)), 
+                        url('https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1600&q=80&auto=format&fit=crop') center/cover fixed;
+        }
+        .logo-text {
+            letter-spacing: 0.05em;
+            font-size: 0.5rem;
+            white-space: nowrap;
+        }
+        @media (min-width: 400px) {
+            .logo-text {
+                letter-spacing: 0.08em;
+                font-size: 0.55rem;
+            }
+        }
+        @media (min-width: 640px) {
+            .logo-text {
+                letter-spacing: 0.15em;
+                font-size: 0.65rem;
+            }
+        }
+        @media (min-width: 1024px) {
+            .logo-text {
+                letter-spacing: 0.25em;
+                font-size: 0.75rem;
+            }
+        }
+        @media (max-width: 640px) {
+            .page-header h1 { font-size: 1.75rem !important; }
+            .section-divider { width: 60px; }
+            .practice-card { padding: 1.25rem !important; }
+            .process-step .step-number { width: 3.5rem !important; height: 3.5rem !important; font-size: 1.25rem !important; }
+        }
+        .gold-gradient { background: linear-gradient(135deg, #B8860B, #DAA520, #F4C430); }
+        .gold-text {
+            background: linear-gradient(135deg, #B8860B, #DAA520);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .shimmer-btn {
+            background: linear-gradient(90deg, #B8860B 0%, #DAA520 50%, #B8860B 100%);
+            background-size: 200% auto;
+            transition: all 0.3s ease;
+        }
+        .shimmer-btn:hover {
+            background-position: right center;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(184, 134, 11, 0.4);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+        }
+        .navbar-scrolled {
+            background: rgba(255, 255, 255, 0.98) !important;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-float { animation: float 3s ease-in-out infinite; }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .practice-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: linear-gradient(135deg, #ffffff 0%, #f8f5f0 100%);
+        }
+        .practice-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(184, 134, 11, 0.2);
+        }
+        .practice-card:hover .icon-wrapper {
+            background: linear-gradient(135deg, #B8860B, #DAA520);
+            transform: scale(1.1) rotate(5deg);
+        }
+        .practice-card:hover .icon-wrapper i {
+            color: white;
+        }
+        .icon-wrapper {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .judgment-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        .judgment-card:hover {
+            border-left-color: #B8860B;
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(184, 134, 11, 0.1);
+        }
+        .process-step {
+            transition: all 0.4s ease;
+        }
+        .process-step:hover {
+            transform: translateY(-10px);
+        }
+        .process-step:hover .step-number {
+            transform: scale(1.1);
+            box-shadow: 0 15px 30px rgba(184, 134, 11, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Top Bar -->
+    <div class="bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 text-gray-200 py-2.5 text-sm hidden md:block">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <div class="flex items-center space-x-6">
+                <span class="flex items-center"><i class="fas fa-map-marker-alt text-yellow-500 mr-2"></i>193, Sector 70, Mohali, Punjab – 160071</span>
+                <span class="flex items-center"><i class="fas fa-envelope text-yellow-500 mr-2"></i>sandhu_hps@hotmail.com</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="#" class="hover:text-yellow-400 transition duration-300 transform hover:scale-110"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-yellow-400 transition duration-300 transform hover:scale-110"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="hover:text-yellow-400 transition duration-300 transform hover:scale-110"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="sticky top-0 w-full z-50 transition-all duration-500 bg-white/95 backdrop-blur-md shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <a href="index.html" class="flex items-center space-x-2 sm:space-x-3 lg:space-x-4 group">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 gold-gradient rounded-full flex items-center justify-center border-2 border-yellow-300 shadow-lg group-hover:animate-pulse flex-shrink-0">
+                        <span class="text-white font-bold text-sm sm:text-lg lg:text-xl">SLC</span>
+                    </div>
+                    <div class="min-w-0">
+                        <h1 class="logo-text font-bold text-gray-800">SANDHU LAW COLLECTIVE</h1>
+                        <p class="text-[0.5rem] sm:text-xs text-yellow-600 tracking-wide sm:tracking-widest font-medium">ADVOCATES & ASSOCIATES</p>
+                    </div>
+                </a>
+                
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-yellow-600 transition font-medium">Home</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-yellow-600 transition font-medium">About Us</a>
+                    <a href="practice.html" class="nav-link active text-yellow-600 transition font-medium">Areas of Practice</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-yellow-600 transition font-medium">Contact Us</a>
+                    <a href="tel:+919914155011" class="shimmer-btn text-white px-6 py-2.5 rounded-full font-medium shadow-lg">
+                        <i class="fas fa-phone mr-2"></i>Call Now
+                    </a>
+                </div>
+
+                <button id="mobileMenuBtn" class="lg:hidden text-gray-700 text-2xl hover:text-yellow-600 transition">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-gray-200 shadow-lg">
+            <div class="px-4 py-4 space-y-3">
+                <a href="index.html" class="block text-gray-700 hover:text-yellow-600 py-2 pl-4 hover:bg-yellow-50 transition">Home</a>
+                <a href="about.html" class="block text-gray-700 hover:text-yellow-600 py-2 pl-4 hover:bg-yellow-50 transition">About Us</a>
+                <a href="practice.html" class="block text-yellow-600 py-2 font-medium border-l-4 border-yellow-500 pl-4 bg-yellow-50">Areas of Practice</a>
+                <a href="contact.html" class="block text-gray-700 hover:text-yellow-600 py-2 pl-4 hover:bg-yellow-50 transition">Contact Us</a>
+                <a href="tel:+919914155011" class="block shimmer-btn text-white px-4 py-3 rounded-full text-center mt-4 font-medium">
+                    <i class="fas fa-phone mr-2"></i>Call Now
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header pt-32 pb-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">Areas of Practice</h1>
+            <div class="section-divider mx-auto mb-6"></div>
+            <p class="text-gray-600 text-lg max-w-2xl mx-auto">Strategic Litigation & Comprehensive Legal Services</p>
+            <div class="flex items-center justify-center mt-6 text-gray-500">
+                <a href="index.html" class="hover:text-yellow-600 transition">Home</a>
+                <i class="fas fa-chevron-right mx-3 text-xs text-yellow-500"></i>
+                <span class="text-yellow-600 font-medium">Areas of Practice</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Practice Areas -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <p class="text-yellow-600 font-semibold tracking-widest mb-3">OUR EXPERTISE</p>
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Key Practice Areas</h2>
+                <div class="section-divider mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">We handle a diverse range of matters with strategic approach, rigorous research, and comprehensive preparation in every case.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Practice Card 1 -->
+                <div class="practice-card border border-gray-100 rounded-2xl p-8 shadow-lg reveal">
+                    <div class="icon-wrapper w-16 h-16 bg-yellow-100 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-scroll text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Writ Litigation (Civil & Criminal)</h3>
+                    <p class="text-gray-600 mb-4">Strategic writ petitions before High Courts for constitutional remedies, fundamental rights violations, and administrative actions.</p>
+                    <ul class="text-gray-500 text-sm space-y-2 mb-4">
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Writ Petitions (Civil)</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Writ Petitions (Criminal)</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>FIR Quashing</li>
+                    </ul>
+                    <a href="contact.html" class="text-yellow-600 font-semibold hover:text-yellow-700 group">Get Consultation <i class="fas fa-arrow-right ml-1 transform group-hover:translate-x-2 transition"></i></a>
+                </div>
+                <!-- Practice Card 2 -->
+                <div class="practice-card border border-gray-100 rounded-2xl p-8 shadow-lg reveal">
+                    <div class="icon-wrapper w-16 h-16 bg-yellow-100 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-landmark text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Constitutional & Service Law</h3>
+                    <p class="text-gray-600 mb-4">Service matters, departmental inquiries, constitutional challenges, and government employee disputes.</p>
+                    <ul class="text-gray-500 text-sm space-y-2 mb-4">
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Service Matters</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Departmental Inquiries</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Constitutional Challenges</li>
+                    </ul>
+                    <a href="contact.html" class="text-yellow-600 font-semibold hover:text-yellow-700 group">Get Consultation <i class="fas fa-arrow-right ml-1 transform group-hover:translate-x-2 transition"></i></a>
+                </div>
+                <!-- Practice Card 3 -->
+                <div class="practice-card border border-gray-100 rounded-2xl p-8 shadow-lg reveal">
+                    <div class="icon-wrapper w-16 h-16 bg-yellow-100 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-gavel text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Civil and Criminal Litigation</h3>
+                    <p class="text-gray-600 mb-4">Comprehensive litigation support including trials, appeals, revisions, and representation before all courts.</p>
+                    <ul class="text-gray-500 text-sm space-y-2 mb-4">
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Criminal Defense</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Civil Suits</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Bail Applications</li>
+                    </ul>
+                    <a href="contact.html" class="text-yellow-600 font-semibold hover:text-yellow-700 group">Get Consultation <i class="fas fa-arrow-right ml-1 transform group-hover:translate-x-2 transition"></i></a>
+                </div>
+                <!-- Practice Card 4 -->
+                <div class="practice-card border border-gray-100 rounded-2xl p-8 shadow-lg reveal">
+                    <div class="icon-wrapper w-16 h-16 bg-yellow-100 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-home text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Property & Revenue Matters</h3>
+                    <p class="text-gray-600 mb-4">Property disputes, land records, revenue matters, and proceedings before Revenue Authorities, Punjab.</p>
+                    <ul class="text-gray-500 text-sm space-y-2 mb-4">
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Property Disputes</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Revenue Matters</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Land Records</li>
+                    </ul>
+                    <a href="contact.html" class="text-yellow-600 font-semibold hover:text-yellow-700 group">Get Consultation <i class="fas fa-arrow-right ml-1 transform group-hover:translate-x-2 transition"></i></a>
+                </div>
+                <!-- Practice Card 5 -->
+                <div class="practice-card border border-gray-100 rounded-2xl p-8 shadow-lg reveal">
+                    <div class="icon-wrapper w-16 h-16 bg-yellow-100 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-graduation-cap text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Education Law & Regulatory Litigation</h3>
+                    <p class="text-gray-600 mb-4">Education Tribunals, Consumer Forums, and regulatory matters across Punjab, Haryana and Chandigarh.</p>
+                    <ul class="text-gray-500 text-sm space-y-2 mb-4">
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Education Tribunals</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Consumer Forums</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Regulatory Matters</li>
+                    </ul>
+                    <a href="contact.html" class="text-yellow-600 font-semibold hover:text-yellow-700 group">Get Consultation <i class="fas fa-arrow-right ml-1 transform group-hover:translate-x-2 transition"></i></a>
+                </div>
+                <!-- Practice Card 6 -->
+                <div class="practice-card border border-gray-100 rounded-2xl p-8 shadow-lg reveal">
+                    <div class="icon-wrapper w-16 h-16 bg-yellow-100 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-map text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Land Acquisition & Transfer of Property</h3>
+                    <p class="text-gray-600 mb-4">Land acquisition disputes, compensation matters, transfer of property, and related litigation.</p>
+                    <ul class="text-gray-500 text-sm space-y-2 mb-4">
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Land Acquisition</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Compensation Disputes</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Transfer of Property</li>
+                    </ul>
+                    <a href="contact.html" class="text-yellow-600 font-semibold hover:text-yellow-700 group">Get Consultation <i class="fas fa-arrow-right ml-1 transform group-hover:translate-x-2 transition"></i></a>
+                </div>
+                <!-- Practice Card 7 -->
+                <div class="practice-card border border-gray-100 rounded-2xl p-8 shadow-lg reveal lg:col-start-2">
+                    <div class="icon-wrapper w-16 h-16 bg-yellow-100 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-handshake text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Arbitration & Contractual Disputes</h3>
+                    <p class="text-gray-600 mb-4">Commercial arbitration, contractual disputes, and alternative dispute resolution mechanisms.</p>
+                    <ul class="text-gray-500 text-sm space-y-2 mb-4">
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Commercial Arbitration</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Contract Disputes</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>ADR Mechanisms</li>
+                    </ul>
+                    <a href="contact.html" class="text-yellow-600 font-semibold hover:text-yellow-700 group">Get Consultation <i class="fas fa-arrow-right ml-1 transform group-hover:translate-x-2 transition"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do -->
+    <section class="py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <p class="text-yellow-600 font-semibold tracking-widest mb-3">SPECIALIZATIONS</p>
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">In Addition to Courtroom Advocacy</h2>
+                <div class="section-divider mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-2xl transition transform hover:-translate-y-3 border border-gray-100 reveal">
+                    <div class="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-file-alt text-yellow-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-3">Writ Petitions</h3>
+                    <p class="text-gray-600 text-sm">Drafting and filing of writ petitions before High Courts</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-2xl transition transform hover:-translate-y-3 border border-gray-100 reveal">
+                    <div class="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-balance-scale text-yellow-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-3">Appeals & Second Appeals</h3>
+                    <p class="text-gray-600 text-sm">Comprehensive appellate practice before various courts</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-2xl transition transform hover:-translate-y-3 border border-gray-100 reveal">
+                    <div class="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-unlock text-yellow-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-3">Bail Applications</h3>
+                    <p class="text-gray-600 text-sm">Strategic bail applications with thorough preparation</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-2xl transition transform hover:-translate-y-3 border border-gray-100 reveal">
+                    <div class="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-search text-yellow-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-3">Legal Opinions</h3>
+                    <p class="text-gray-600 text-sm">Rigorous research and expert legal opinions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Select Reported Judgments -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <p class="text-yellow-600 font-semibold tracking-widest mb-3">OUR ACHIEVEMENTS</p>
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Select Reported Judgments (2025)</h2>
+                <div class="section-divider mx-auto mb-6"></div>
+                <p class="text-gray-600 mb-6">Criminal Jurisdiction Only</p>
+                <!-- Inline courtroom image for visual context -->
+                <div class="max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-xl">
+                    <img src="https://th.bing.com/th/id/R.cdb7b4e621dd3f4b3b24068b8a1c99b2?rik=BIbnmVlCHkSM6A&riu=http%3a%2f%2fwww.delhihighcourt.nic.in%2ffiles%2f2025-04%2fbanner3.jpg&ehk=IlrI%2bbChQm0efj9%2bAO1oM15G47lkUYlKgMCZ3ktpulk%3d&risl=&pid=ImgRaw&r=0" alt="Courtroom interior" class="w-full h-56 md:h-72 lg:h-80 object-cover">
+                </div>
+            </div>
+            
+            <!-- Supreme Court -->
+            <div class="mb-12 reveal">
+                <div class="flex items-center mb-6">
+                    <div class="w-14 h-14 gold-gradient rounded-full flex items-center justify-center mr-4 shadow-lg">
+                        <i class="fas fa-landmark text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800">Supreme Court of India, New Delhi</h3>
+                </div>
+                <div class="judgment-card bg-gradient-to-r from-white to-yellow-50 p-6 rounded-xl shadow-lg">
+                    <h4 class="font-bold text-gray-800 mb-2">M/s J.M. Laboratories & Others v. State of Andhra Pradesh & Another</h4>
+                    <p class="text-yellow-600 mb-2 font-medium">2025 SCC Online SC 208</p>
+                    <p class="text-gray-600 mb-3">(Quashing of criminal complaint and summoning order under the Drugs and Cosmetics Act, 1940)</p>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="#" class="text-sm bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-gray-700 transition transform hover:scale-105">
+                            <i class="fas fa-external-link-alt mr-2"></i>Verdictum Report
+                        </a>
+                        <a href="#" class="text-sm shimmer-btn text-white px-4 py-2 rounded-full">
+                            <i class="fas fa-newspaper mr-2"></i>LiveLaw Coverage
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Punjab & Haryana High Court -->
+            <div class="reveal">
+                <div class="flex items-center mb-6">
+                    <div class="w-14 h-14 gold-gradient rounded-full flex items-center justify-center mr-4 shadow-lg">
+                        <i class="fas fa-balance-scale text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800">Punjab & Haryana High Court, Chandigarh</h3>
+                </div>
+                <div class="space-y-4">
+                    <div class="judgment-card bg-gradient-to-r from-white to-gray-50 p-6 rounded-xl shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-2">Gurmail Singh v. State of Punjab & Another</h4>
+                        <p class="text-yellow-600 mb-2 font-medium">2025 (2) RCR (Criminal) 557</p>
+                        <p class="text-gray-600 mb-3">(FIR Quashing – Intent and Mischief)</p>
+                        <a href="#" class="text-sm text-yellow-600 hover:text-yellow-700 font-medium"><i class="fas fa-external-link-alt mr-2"></i>LiveLaw Coverage</a>
+                    </div>
+                    <div class="judgment-card bg-gradient-to-r from-white to-gray-50 p-6 rounded-xl shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-2">Keval Singh @ KV Dhillon v. State of Punjab</h4>
+                        <p class="text-yellow-600 mb-2 font-medium">2025 (3) RCR (Criminal) 340</p>
+                        <p class="text-gray-600 mb-3">(Quashing of FIR against film producer – Freedom of Expression – Cinematograph Act, 1952)</p>
+                        <a href="#" class="text-sm text-yellow-600 hover:text-yellow-700 font-medium"><i class="fas fa-external-link-alt mr-2"></i>LiveLaw Coverage</a>
+                    </div>
+                    <div class="judgment-card bg-gradient-to-r from-white to-gray-50 p-6 rounded-xl shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-2">Union Bank of India v. Asst. Director, Director of Enforcement</h4>
+                        <p class="text-yellow-600 mb-2 font-medium">PMLA – Money Laundering</p>
+                        <p class="text-gray-600 mb-3">(Order of Confiscating Property is not an Interlocutory, can be challenged in Revision)</p>
+                        <a href="#" class="text-sm text-yellow-600 hover:text-yellow-700 font-medium"><i class="fas fa-external-link-alt mr-2"></i>LiveLaw Coverage</a>
+                    </div>
+                    <div class="judgment-card bg-gradient-to-r from-white to-gray-50 p-6 rounded-xl shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-2">Vinod Kumar Dhawan v. Union of India</h4>
+                        <p class="text-yellow-600 mb-2 font-medium">Law Finder Doc Id # 2678778</p>
+                        <p class="text-gray-600">(Quashing of criminal complaint and summoning under Drugs and Cosmetics Act, 1940)</p>
+                    </div>
+                    <div class="judgment-card bg-gradient-to-r from-white to-gray-50 p-6 rounded-xl shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-2">Shwetambari Rao Chandrakant v. Haryana State Pollution Control Board</h4>
+                        <p class="text-yellow-600 mb-2 font-medium">CRM-M 51042 of 2022</p>
+                        <p class="text-gray-600">(Quashing of criminal complaint against Directors of M/S SAB Miller India Limited under Water (Prevention & Control of Pollution) Act, 1974)</p>
+                    </div>
+                    <div class="judgment-card bg-gradient-to-r from-white to-gray-50 p-6 rounded-xl shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-2">Piyush Kumar v. State of Haryana</h4>
+                        <p class="text-yellow-600 mb-2 font-medium">Law Finder Doc Id # 2037111</p>
+                        <p class="text-gray-600">(Quashing of criminal complaint under Building & Other Construction Workers Act, 1996 against individual director)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 bg-yellow-50 p-8 rounded-2xl border border-yellow-200 reveal">
+                <p class="text-gray-700 text-center">
+                    <i class="fas fa-info-circle text-yellow-500 mr-2"></i>
+                    Several key judgments are illustrated herein for reference. Our office has also been involved in numerous other matters across various jurisdictions (viz. Civil, Service, Arbitration, etc.). For further information or case-specific details, please feel free to <a href="contact.html" class="text-yellow-600 font-semibold hover:underline">contact us</a>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Process -->
+    <section class="py-20 dark-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <p class="text-yellow-400 font-semibold tracking-widest mb-3">HOW WE WORK</p>
+                <h2 class="text-4xl font-bold text-white mb-4">Our Approach</h2>
+                <div class="section-divider mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="process-step text-center reveal">
+                    <div class="step-number w-20 h-20 gold-gradient text-white rounded-full flex items-center justify-center mx-auto mb-6 text-3xl font-bold shadow-xl transition">1</div>
+                    <h3 class="text-xl font-bold text-white mb-2">Consultation</h3>
+                    <p class="text-gray-400">Initial meeting to understand your legal needs, documents, and concerns.</p>
+                </div>
+                <div class="process-step text-center reveal">
+                    <div class="step-number w-20 h-20 gold-gradient text-white rounded-full flex items-center justify-center mx-auto mb-6 text-3xl font-bold shadow-xl transition">2</div>
+                    <h3 class="text-xl font-bold text-white mb-2">Research & Analysis</h3>
+                    <p class="text-gray-400">Thorough legal research and comprehensive case analysis.</p>
+                </div>
+                <div class="process-step text-center reveal">
+                    <div class="step-number w-20 h-20 gold-gradient text-white rounded-full flex items-center justify-center mx-auto mb-6 text-3xl font-bold shadow-xl transition">3</div>
+                    <h3 class="text-xl font-bold text-white mb-2">Strategy</h3>
+                    <p class="text-gray-400">Strategic planning with precision drafting and problem-solving approach.</p>
+                </div>
+                <div class="process-step text-center reveal">
+                    <div class="step-number w-20 h-20 gold-gradient text-white rounded-full flex items-center justify-center mx-auto mb-6 text-3xl font-bold shadow-xl transition">4</div>
+                    <h3 class="text-xl font-bold text-white mb-2">Execution</h3>
+                    <p class="text-gray-400">Timely filings and vigorous representation to achieve best outcomes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 gold-gradient">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+            <h2 class="text-4xl font-bold text-white mb-6">Need Legal Assistance?</h2>
+            <p class="text-white/90 text-lg mb-8 max-w-2xl mx-auto">Our experienced team is ready to help you with your legal matters. Contact us today for a consultation.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="contact.html" class="bg-white text-yellow-700 hover:bg-gray-100 px-10 py-4 rounded-full font-semibold transition transform hover:scale-105 shadow-xl">
+                    Schedule Consultation
+                </a>
+                <a href="tel:+919914155011" class="border-2 border-white text-white hover:bg-white hover:text-yellow-700 px-10 py-4 rounded-full font-semibold transition">
+                    <i class="fas fa-phone mr-2"></i>+91-99141-55011
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid md:grid-cols-4 gap-12">
+                <div class="md:col-span-1">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 gold-gradient rounded-full flex items-center justify-center">
+                            <span class="text-white font-bold">SLC</span>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-bold tracking-wider">SANDHU LAW COLLECTIVE</h3>
+                            <p class="text-xs text-yellow-500">ADVOCATES & ASSOCIATES</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6">An independent, litigation-focused practice headquartered in Chandigarh Capital Region.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-yellow-600 rounded-full flex items-center justify-center transition transform hover:scale-110"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-yellow-600 rounded-full flex items-center justify-center transition transform hover:scale-110"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-yellow-600 rounded-full flex items-center justify-center transition transform hover:scale-110"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-yellow-500 transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-yellow-500"></i>Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-yellow-500 transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-yellow-500"></i>About Us</a></li>
+                        <li><a href="practice.html" class="text-gray-400 hover:text-yellow-500 transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-yellow-500"></i>Areas of Practice</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-yellow-500 transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-yellow-500"></i>Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Practice Areas</h4>
+                    <ul class="space-y-3">
+                        <li><a href="practice.html" class="text-gray-400 hover:text-yellow-500 transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-yellow-500"></i>Writ Litigation</a></li>
+                        <li><a href="practice.html" class="text-gray-400 hover:text-yellow-500 transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-yellow-500"></i>Criminal Law</a></li>
+                        <li><a href="practice.html" class="text-gray-400 hover:text-yellow-500 transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-yellow-500"></i>Civil Litigation</a></li>
+                        <li><a href="practice.html" class="text-gray-400 hover:text-yellow-500 transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-yellow-500"></i>Arbitration</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Contact Info</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-map-marker-alt text-yellow-500 mt-1"></i>
+                            <span class="text-gray-400">193, Sector 70, Mohali, Punjab – 160071</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-phone-alt text-yellow-500 mt-1"></i>
+                            <span class="text-gray-400">+91-99141-55011<br>+91-99143-55011</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-envelope text-yellow-500 mt-1"></i>
+                            <span class="text-gray-400">sandhu_hps@hotmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-500 text-sm">&copy; 2024 Sandhu Law Collective. All Rights Reserved.</p>
+                    <p class="text-gray-500 text-sm mt-2 md:mt-0">Advocates | Punjab & Haryana High Court</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="fixed bottom-8 right-8 w-14 h-14 gold-gradient text-white rounded-full shadow-xl hidden transition transform hover:scale-110 z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) navbar.classList.add('navbar-scrolled');
+            else navbar.classList.remove('navbar-scrolled');
+        });
+
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => backToTop.classList.toggle('hidden', window.scrollY <= 500));
+        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        function revealOnScroll() {
+            document.querySelectorAll('.reveal').forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 150) element.classList.add('active');
+            });
+        }
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+    </script>
+</body>
+</html>
