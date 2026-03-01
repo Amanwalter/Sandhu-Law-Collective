@@ -33,7 +33,6 @@
                         url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=1600&auto=format&fit=crop') center/cover fixed;
         }
         .dark-section {
-            /* Courtroom / high court interior */
             background: linear-gradient(rgba(45,55,72,0.9), rgba(45,55,72,0.86)), 
                         url('https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1600&q=80&auto=format&fit=crop') center/cover fixed;
         }
@@ -43,22 +42,13 @@
             white-space: nowrap;
         }
         @media (min-width: 400px) {
-            .logo-text {
-                letter-spacing: 0.08em;
-                font-size: 0.55rem;
-            }
+            .logo-text { letter-spacing: 0.08em; font-size: 0.55rem; }
         }
         @media (min-width: 640px) {
-            .logo-text {
-                letter-spacing: 0.15em;
-                font-size: 0.65rem;
-            }
+            .logo-text { letter-spacing: 0.15em; font-size: 0.65rem; }
         }
         @media (min-width: 1024px) {
-            .logo-text {
-                letter-spacing: 0.25em;
-                font-size: 0.75rem;
-            }
+            .logo-text { letter-spacing: 0.25em; font-size: 0.75rem; }
         }
         @media (max-width: 640px) {
             .page-header h1 { font-size: 1.75rem !important; }
@@ -154,9 +144,10 @@
                 <span class="flex items-center"><i class="fas fa-envelope text-yellow-500 mr-2"></i>sandhu_hps@hotmail.com</span>
             </div>
             <div class="flex items-center space-x-4">
-                <a href="#" class="hover:text-yellow-400 transition duration-300 transform hover:scale-110"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="hover:text-yellow-400 transition duration-300 transform hover:scale-110"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" class="hover:text-yellow-400 transition duration-300 transform hover:scale-110"><i class="fab fa-twitter"></i></a>
+                <!-- Only LinkedIn retained -->
+                <a href="#" class="hover:text-yellow-400 transition duration-300 transform hover:scale-110">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
             </div>
         </div>
     </div>
@@ -211,7 +202,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">Areas of Practice</h1>
             <div class="section-divider mx-auto mb-6"></div>
-            <p class="text-gray-600 text-lg max-w-2xl mx-auto">Strategic Litigation & Comprehensive Legal Services</p>
+            <p class="text-gray-600 text-lg max-w-2xl mx-auto">Strategic Litigation &amp; Comprehensive Legal Services</p>
             <div class="flex items-center justify-center mt-6 text-gray-500">
                 <a href="index.html" class="hover:text-yellow-600 transition">Home</a>
                 <i class="fas fa-chevron-right mx-3 text-xs text-yellow-500"></i>
@@ -230,7 +221,6 @@
                 <p class="text-gray-600 max-w-3xl mx-auto">We handle a diverse range of matters with strategic approach, rigorous research, and comprehensive preparation in every case.</p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Practice Card 1 -->
                 <div class="practice-card border border-gray-100 rounded-2xl p-8 shadow-lg reveal">
                     <div class="icon-wrapper w-16 h-16 bg-yellow-100 rounded-xl flex items-center justify-center mb-6">
                         <i class="fas fa-scroll text-yellow-600 text-2xl"></i>
@@ -244,7 +234,6 @@
                     </ul>
                     <a href="contact.html" class="text-yellow-600 font-semibold hover:text-yellow-700 group">Get Consultation <i class="fas fa-arrow-right ml-1 transform group-hover:translate-x-2 transition"></i></a>
                 </div>
-                <!-- Practice Card 2 -->
                 <div class="practice-card border border-gray-100 rounded-2xl p-8 shadow-lg reveal">
                     <div class="icon-wrapper w-16 h-16 bg-yellow-100 rounded-xl flex items-center justify-center mb-6">
                         <i class="fas fa-landmark text-yellow-600 text-2xl"></i>
@@ -258,7 +247,6 @@
                     </ul>
                     <a href="contact.html" class="text-yellow-600 font-semibold hover:text-yellow-700 group">Get Consultation <i class="fas fa-arrow-right ml-1 transform group-hover:translate-x-2 transition"></i></a>
                 </div>
-                <!-- Practice Card 3 -->
                 <div class="practice-card border border-gray-100 rounded-2xl p-8 shadow-lg reveal">
                     <div class="icon-wrapper w-16 h-16 bg-yellow-100 rounded-xl flex items-center justify-center mb-6">
                         <i class="fas fa-gavel text-yellow-600 text-2xl"></i>
@@ -272,7 +260,6 @@
                     </ul>
                     <a href="contact.html" class="text-yellow-600 font-semibold hover:text-yellow-700 group">Get Consultation <i class="fas fa-arrow-right ml-1 transform group-hover:translate-x-2 transition"></i></a>
                 </div>
-                <!-- Practice Card 4 -->
                 <div class="practice-card border border-gray-100 rounded-2xl p-8 shadow-lg reveal">
                     <div class="icon-wrapper w-16 h-16 bg-yellow-100 rounded-xl flex items-center justify-center mb-6">
                         <i class="fas fa-home text-yellow-600 text-2xl"></i>
@@ -286,7 +273,6 @@
                     </ul>
                     <a href="contact.html" class="text-yellow-600 font-semibold hover:text-yellow-700 group">Get Consultation <i class="fas fa-arrow-right ml-1 transform group-hover:translate-x-2 transition"></i></a>
                 </div>
-                <!-- Practice Card 5 -->
                 <div class="practice-card border border-gray-100 rounded-2xl p-8 shadow-lg reveal">
                     <div class="icon-wrapper w-16 h-16 bg-yellow-100 rounded-xl flex items-center justify-center mb-6">
                         <i class="fas fa-graduation-cap text-yellow-600 text-2xl"></i>
@@ -300,7 +286,6 @@
                     </ul>
                     <a href="contact.html" class="text-yellow-600 font-semibold hover:text-yellow-700 group">Get Consultation <i class="fas fa-arrow-right ml-1 transform group-hover:translate-x-2 transition"></i></a>
                 </div>
-                <!-- Practice Card 6 -->
                 <div class="practice-card border border-gray-100 rounded-2xl p-8 shadow-lg reveal">
                     <div class="icon-wrapper w-16 h-16 bg-yellow-100 rounded-xl flex items-center justify-center mb-6">
                         <i class="fas fa-map text-yellow-600 text-2xl"></i>
@@ -314,7 +299,6 @@
                     </ul>
                     <a href="contact.html" class="text-yellow-600 font-semibold hover:text-yellow-700 group">Get Consultation <i class="fas fa-arrow-right ml-1 transform group-hover:translate-x-2 transition"></i></a>
                 </div>
-                <!-- Practice Card 7 -->
                 <div class="practice-card border border-gray-100 rounded-2xl p-8 shadow-lg reveal lg:col-start-2">
                     <div class="icon-wrapper w-16 h-16 bg-yellow-100 rounded-xl flex items-center justify-center mb-6">
                         <i class="fas fa-handshake text-yellow-600 text-2xl"></i>
@@ -381,13 +365,11 @@
                 <h2 class="text-4xl font-bold text-gray-800 mb-4">Select Reported Judgments (2025)</h2>
                 <div class="section-divider mx-auto mb-6"></div>
                 <p class="text-gray-600 mb-6">Criminal Jurisdiction Only</p>
-                <!-- Inline courtroom image for visual context -->
                 <div class="max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-xl">
                     <img src="https://th.bing.com/th/id/R.cdb7b4e621dd3f4b3b24068b8a1c99b2?rik=BIbnmVlCHkSM6A&riu=http%3a%2f%2fwww.delhihighcourt.nic.in%2ffiles%2f2025-04%2fbanner3.jpg&ehk=IlrI%2bbChQm0efj9%2bAO1oM15G47lkUYlKgMCZ3ktpulk%3d&risl=&pid=ImgRaw&r=0" alt="Courtroom interior" class="w-full h-56 md:h-72 lg:h-80 object-cover">
                 </div>
             </div>
             
-            <!-- Supreme Court -->
             <div class="mb-12 reveal">
                 <div class="flex items-center mb-6">
                     <div class="w-14 h-14 gold-gradient rounded-full flex items-center justify-center mr-4 shadow-lg">
@@ -410,7 +392,6 @@
                 </div>
             </div>
 
-            <!-- Punjab & Haryana High Court -->
             <div class="reveal">
                 <div class="flex items-center mb-6">
                     <div class="w-14 h-14 gold-gradient rounded-full flex items-center justify-center mr-4 shadow-lg">
@@ -531,9 +512,10 @@
                     </div>
                     <p class="text-gray-400 mb-6">An independent, litigation-focused practice headquartered in Chandigarh Capital Region.</p>
                     <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-yellow-600 rounded-full flex items-center justify-center transition transform hover:scale-110"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-yellow-600 rounded-full flex items-center justify-center transition transform hover:scale-110"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-yellow-600 rounded-full flex items-center justify-center transition transform hover:scale-110"><i class="fab fa-twitter"></i></a>
+                        <!-- Only LinkedIn retained -->
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-yellow-600 rounded-full flex items-center justify-center transition transform hover:scale-110">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
                     </div>
                 </div>
                 <div>
